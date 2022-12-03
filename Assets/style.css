@@ -34,23 +34,39 @@ h6 {
   font-size: 3rem;
 }
 
+h2 {
+  font-size: 2.5rem;
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
   display: grid;
   place-content: center;
 }
+
+.full-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  width: 65%;
+  margin: 0 auto;
+}
 .text-center {
   text-align: center;
 }
 .hero {
+  --height: 45vh;
   min-width: 100%;
   background-color: white;
   background-image: url("../images/bg-header-desktop.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
-  height: 45vh;
+  height: var(--height);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -66,8 +82,9 @@ h6 {
   margin-bottom: 120px;
 }
 
-.hero-container p {
-  margin-top: 20px;
+p {
+  margin-top: 30px;
+  font-size: 1.5rem;
 }
 
 .btn-group {
@@ -76,11 +93,12 @@ h6 {
 }
 
 .btn {
-  padding: 15px 32px;
-  border-radius: 25px;
+  --width-size: 450px;
+  padding: 20px 40px;
+  border-radius: 50px;
   text-align: center;
   text-decoration: none;
-  width: 250px;
+  width: var(--width-size);
   cursor: pointer;
 }
 
@@ -106,16 +124,64 @@ h6 {
   border-bottom: 4px solid var(--LightBlue);
 }
 
-@media screen and (max-width: 375px) {
+.info-container {
+  margin-top: 180px !important;
+  margin-bottom: 110px !important;
+}
+
+/* .col-2 {
+  --width-size: 50%;
+  min-width: var(--width-size);
+  display: table-cell;
+  vertical-align: middle;
+} */
+
+.col-2 {
+  --width-size: 50%;
+  float: left;
+  width: var(--width-size);
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.rows:after {
+  --display: table;
+  content: "";
+  display: var(--display);
+  clear: both;
+}
+
+.computer-img {
+  --width-size: 50vw;
+  --position: absolute;
+  width: var(--width-size);
+  position: var(--position);
+  left: -5%;
+}
+
+.card-computer {
+  --width: 50%;
+  width: var(--width);
+  margin-top: 120px;
+}
+
+.card-computer h3 {
+  font-size: 1.75rem;
+  display: block;
+}
+@media screen and (max-width: 600px) {
   .hero {
-    height: 45vh;
-    box-shadow: inset 0px 0px 10px 0px white;
+    --height: 30vh;
+    background-size: contain;
+  }
+  .row {
+    width: 100%;
+    margin: 0 auto;
   }
   .hero img {
     position: relative;
-    padding-top: 80px;
     bottom: 20px;
-    width: 70px;
+    width: 100px;
   }
   .hero-title {
     font-size: 2rem;
@@ -124,13 +190,29 @@ h6 {
     display: block;
   }
   .btn {
-    width: 100% !important;
+    --width-size: 100%;
     display: block;
   }
   .btn-success {
     margin-right: 0;
   }
   .btn-primary {
-    margin-top: 10px;
+    margin-top: 20px;
+  }
+  .col-2 {
+    --width-size: 100%;
+  }
+  .computer-img {
+    --width-size: 90%;
+    --position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .rows:after {
+    --display: block;
+  }
+  .card-computer {
+    --width: 100%;
+    text-align: center;
   }
 }
