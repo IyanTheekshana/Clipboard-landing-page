@@ -263,7 +263,7 @@ footer .footer-links {
   color: var(--DarkGrayishBlue);
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 600px) {
   .hero {
     --height: 30vh;
     background-size: contain;
